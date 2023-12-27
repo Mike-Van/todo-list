@@ -1,43 +1,59 @@
 {
-	"compilerOptions": {
-		"composite": false,
-		"declaration": true,
-		"declarationMap": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"incremental": true,
-		"inlineSources": false,
-		"isolatedModules": true,
-		"preserveWatchOutput": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"experimentalDecorators": true,
-		"allowJs": true,
-		"checkJs": true,
-
-		"sourceMap": true,
-		"allowSyntheticDefaultImports": true,
-		"target": "ES6",
-		"module": "CommonJS",
-		"moduleResolution": "Node",
-
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"noImplicitAny": false,
-
-		"strict": true,
-		"strictNullChecks": true,
-		"noImplicitThis": true,
-		"alwaysStrict": true,
-
-		"jsx": "preserve",
-		"rootDir": ".",
-		"baseUrl": "./",
-		"paths": {
-			"~/*": ["src/*"]
-		}
-	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "preserveWatchOutput": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "jsx": "preserve",
+    "rootDir": ".",
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "noEmit": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
