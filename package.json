@@ -1,0 +1,33 @@
+{
+	"name": "todo-list",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prettify": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json,yml}\" --loglevel error --cache --cache-strategy metadata"
+	},
+	"dependencies": {
+		"react": "^18",
+		"react-dom": "^18",
+		"next": "14.0.4"
+	},
+	"devDependencies": {
+		"prettier": "2.8.8",
+		"typescript": "^5",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8",
+		"eslint-config-next": "14.0.4",
+		"@typescript-eslint/eslint-plugin": "^5.59.7",
+		"@typescript-eslint/parser": "^5.59.7",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-jest": "^27.2.1",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react": "^7.32.2"
+	}
+}
