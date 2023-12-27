@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
 
-import { useDeleteTodo, useGetTodos, useSubscribeTodos, useUpdateTodo } from '~/queries/todos';
+import { useDeleteTodo, useGetTodos, useSubscribeTodos, useUpdateTodo } from '~/queries';
 import { Todo } from '~/types';
 
 const List: FC = () => {

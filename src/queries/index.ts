@@ -40,47 +40,20 @@ const useGetTodos = () => {
 	});
 };
 const useCreateTodo = () => {
-	// const queryClient = useQueryClient();
-
 	return useMutation({
 		mutationFn: (body: TodoCreateInput) => apiInstance.post<Todo>('/todo', body),
-		// onSuccess: (data) => {
-		// 	queryClient.setQueryData<Todo[]>(['todos'], (prevData) => {
-		// 		if (!prevData) return [data];
-
-		// 		return [data, ...prevData];
-		// 	});
-		// },
 	});
 };
 
 const useUpdateTodo = () => {
-	// const queryClient = useQueryClient();
-
 	return useMutation({
 		mutationFn: ({ id, body }: { id: string; body: TodoUpdateInput }) =>
-			apiInstance.put<Todo>(`/todo?id=${id}`, body),
-		// onSuccess: (data) => {
-		// 	queryClient.setQueryData<Todo[]>(['todos'], (prevData) => {
-		// 		if (!prevData) return [data];
-
-		// 		return prevData.map((todo) => (todo.id === data.id ? data : todo));
-		// 	});
-		// },
+			apiInstance.put<Todo>(`/todo/${id}`, body),
 	});
 };
 const useDeleteTodo = () => {
-	// const queryClient = useQueryClient();
-
 	return useMutation({
-		mutationFn: (id: string) => apiInstance.delete(`/todo?id=${id}`),
-		// onSuccess: (_data, id) => {
-		// 	queryClient.setQueryData<Todo[]>(['todos'], (prevData) => {
-		// 		if (!prevData) return [];
-
-		// 		return prevData.filter((todo) => todo.id !== id);
-		// 	});
-		// },
+		mutationFn: (id: string) => apiInstance.delete(`/todo/${id}`),
 	});
 };
 

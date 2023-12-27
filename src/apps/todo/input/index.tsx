@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { ChangeEventHandler, FC, KeyboardEventHandler, useEffect, useMemo, useState } from 'react';
 
-import { useCreateTodo, useGetTodos, useUpdateTodo } from '~/queries/todos';
+import { useCreateTodo, useGetTodos, useUpdateTodo } from '~/queries';
 import { Todo } from '~/types';
 
 const Input: FC = () => {
