@@ -13,6 +13,15 @@ const Input: FC = () => {
 	const updateTodo = useUpdateTodo();
 
 	const isEditing = !!router.query.editing;
+	const isActionDisabled = useMemo(() => {
+		if (!title) return true;
+		if (!data?.length) return false;
+
+		if (isEditing)
+			return data.filter((item) => item.id !== router.query.editing).some((item) => item.title === title);
+
+		return data.some((item) => item.title === title);
+	}, [title, data, isEditing, router.query.editing]);
 
 	useEffect(() => {
 		if (isEditing && data?.length) {
@@ -36,7 +45,9 @@ const Input: FC = () => {
 		else router.replace({ query: router.query.editing ? { editing: router.query.editing } : {} });
 	};
 
-	const handleSaveButtonClick = () => {
+	const handleActionButtonClick = () => {
+		if (isActionDisabled) return;
+
 		if (isEditing) {
 			updateTodo.mutate({ id: router.query.editing as string, body: { title } });
 		} else {
@@ -47,24 +58,14 @@ const Input: FC = () => {
 		router.replace('/');
 	};
 
-	const isActionDisabled = useMemo(() => {
-		if (!title) return true;
-		if (!data?.length) return false;
-
-		if (isEditing)
-			return data.filter((item) => item.id !== router.query.editing).some((item) => item.title === title);
-
-		return data.some((item) => item.title === title);
-	}, [title, data, isEditing, router.query.editing]);
-
 	const handleTitleInputKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
-		if (e.key === 'Enter') handleSaveButtonClick();
+		if (e.key === 'Enter') handleActionButtonClick();
 	};
 
 	return (
 		<div>
-			<input onChange={handleTitleInputChange} value={title} onKeyDown={handleTitleInputKeyDown} />
-			<button disabled={isActionDisabled} onClick={handleSaveButtonClick}>
+			<input autoFocus onChange={handleTitleInputChange} value={title} onKeyDown={handleTitleInputKeyDown} />
+			<button disabled={isActionDisabled} onClick={handleActionButtonClick}>
 				{isEditing ? 'Save' : 'Add'}
 			</button>
 		</div>
